@@ -79,7 +79,7 @@ defmodule Tds.Parameter do
   def fix_data_type(%Tds.Parameter{type: nil, value: nil} = param) do
     # should fix ecto has_one, on_change :nulify issue where type is not know when ecto
     # build query/statement for on_chage callback
-    %{param | type: :binary}
+    %{param | type: :null}
   end
 
   def fix_data_type(%Tds.Parameter{value: value} = param)
